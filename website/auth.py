@@ -28,13 +28,13 @@ def valid_signup(email, first_name, password1, password2):
     PASSWORD_LEN = 7
 
     if len(email) < EMAIL_LEN:
-        flash("Email must be at least " + str(EMAIL_LEN) + " characters.", category="error")
+        flash(f"Email must be at least {EMAIL_LEN} characters.", category="error")
         return False
     elif len(first_name) < FIRST_NAME_LEN:
-        flash("First name must be at least " + str(FIRST_NAME_LEN) + " characters.", category="error")
+        flash(f"First name must be at least {FIRST_NAME_LEN} characters.", category="error")
         return False
     elif len(password1) < PASSWORD_LEN:
-        flash("Password must be at least " + str(PASSWORD_LEN) + " characters.", category="error")
+        flash(f"Password must be at least {PASSWORD_LEN} characters.", category="error")
         return False
     elif password1 != password2:
         flash("Passwords must match.", category="error")
