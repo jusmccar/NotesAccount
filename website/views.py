@@ -1,5 +1,5 @@
 import json
-from flask import Blueprint, jsonify, render_template, request, flash
+from flask import Blueprint, jsonify, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
 from . import db
 from .models import Note
@@ -19,6 +19,7 @@ def home():
             db.session.add(new_note)
             db.session.commit()
             flash("Note added!", category="success")
+            return redirect(url_for(".home"))
 
     return render_template("home.html", user=current_user)
 
